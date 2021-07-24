@@ -8,10 +8,11 @@ body {
   --bg-first-color: rgb(155, 215, 230);
   --bg-second-color: rgb(180, 225, 235);
   --hamburger-color: rgb(30, 110, 130);
-  --bg-header-color: rgb(255, 255, 255, 0.2);
+  --bg-header-color: rgb(255, 255, 255, 0.4);
+  --header-title-color: rgb(30, 110, 130);
   --menu-main-color: rgb(95, 190, 215); /* 메뉴 배경색 */
-  --menu-fake1-color: rgb(30, 110, 130); /* 메뉴 중간색 */
-  --menu-fake2-color: rgb(50, 165, 195); /* 메뉴 마지막색 */
+  --menu-fake1-color: rgb(30, 110, 130); /* 메뉴 마지막색 */
+  --menu-fake2-color: rgb(50, 165, 195); /* 메뉴 중간색 */
   --menu-line-color: rgb(30, 110, 130); /* 메뉴 레이아웃 선 색 */
   --menu-title-color: rgb(30, 110, 130); /* 메뉴 제목 색 */
   --menu-text-color: rgb(20, 65, 75); /* 글자색 */
@@ -20,7 +21,10 @@ body {
   --scroll-color: rgb(30, 110, 130); /* 스크롤바 색 */
   --scrolltrack-color: rgb(95, 190, 215); /* 스크롤바 트랙 색 */
   --board-color: rgb(240, 235, 230); /* 글상자색 */
+  --board-title-color: rgb(30, 110, 130); /* 본문 제목 색 */
+  --board-text-color: rgb(0, 0, 0); /* 본문 글자 색 */
   --shadow: rgb(0, 0, 0, 0.3); /* 그림자 */
+
   /* Background */
   background-size: 100px 150px;
   height: 4000px;
@@ -33,18 +37,21 @@ body.red {
   --bg-second-color: rgb(105, 40, 35);
   --hamburger-color: rgb(150, 50, 35);
   --bg-header-color: rgb(50, 30, 25, 0.4);
-  --menu-main-color: rgb(90, 30, 30); /* 배경색 */
+  --header-title-color: rgb(220, 200, 165);
+  --menu-main-color: rgb(90, 30, 30);
   --menu-fake1-color: rgb(60, 20, 20);
   --menu-fake2-color: rgb(75, 25, 25);
   --menu-line-color: rgb(220, 200, 165);
   --menu-title-color: rgb(220, 200, 165);
   --menu-text-color: rgb(235, 220, 180);
-  --menu-top-color: rgb(60, 20, 20); /* 메뉴 top버튼색 */
+  --menu-top-color: rgb(60, 20, 20);
   --menu-toparrow-color: rgb(130, 45, 30);
-  --scroll-color: rgb(150, 50, 35); /* 스크롤바 색 */
+  --scroll-color: rgb(150, 50, 35);
   --scrolltrack-color: rgb(90, 30, 30);
-  --board-color: rgb(220, 200, 165); /* 글상자색 */
-  --shadow: rgb(0, 0, 0, 0.3); /* 그림자 */
+  --board-color: rgb(220, 200, 165);
+  --board-title-color: rgb(105, 40, 35);
+  --board-text-color: rgb(60, 20, 20);
+  --shadow: rgb(0, 0, 0, 0.3);
 }
 
 body.dark {
@@ -52,18 +59,21 @@ body.dark {
   --bg-second-color: rgb(45, 45, 45);
   --hamburger-color: rgb(130, 130, 130);
   --bg-header-color: rgb(0, 0, 0, 0.5);
-  --menu-main-color: rgb(15, 15, 15); /* 배경색 */
+  --header-title-color: rgb(140, 140, 140);
+  --menu-main-color: rgb(15, 15, 15);
   --menu-fake1-color: rgb(35, 35, 35);
   --menu-fake2-color: rgb(25, 25, 25);
   --menu-line-color: rgb(80, 80, 80);
   --menu-title-color: rgb(130, 130, 130);
   --menu-text-color: rgb(200, 200, 200);
-  --menu-top-color: rgb(15, 15, 15); /* 메뉴 top버튼색 */
+  --menu-top-color: rgb(15, 15, 15);
   --menu-toparrow-color: rgb(100, 100, 100);
-  --scroll-color: rgb(50, 50, 50); /* 스크롤바 색 */
+  --scroll-color: rgb(50, 50, 50);
   --scrolltrack-color: rgb(15, 15, 15);
-  --board-color: rgb(25, 25, 25); /* 글상자색 */
-  --shadow: rgb(0, 0, 0, 0.3); /* 그림자 */
+  --board-color: rgb(25, 25, 25);
+  --board-title-color: rgb(130, 130, 130);
+  --board-text-color: rgb(230, 230, 230);
+  --shadow: rgb(0, 0, 0, 0.3);
 }
 
 button {
@@ -73,6 +83,9 @@ button {
 
 #main-header {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -81,6 +94,52 @@ button {
   background-color: var(--bg-header-color);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+}
+
+#header-blank {
+  width: 73.63px; /* 우측 화살표 메뉴와 동일한 길이 */
+  height: 0px;
+}
+#header-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+#title-logo {
+  height: 45px;
+}
+
+body.red #title-logo {
+  content: url("../images/menu/logo_red.png");
+}
+
+body.dark #title-logo {
+  content: url("../images/menu/logo_dark.png");
+}
+
+#title-text {
+  display: inline-block;
+  margin: 0 7px 0 7px;
+  font-family: "Do Hyeon";
+  font-weight: 300;
+  font-size: 30px;
+  color: var(--header-title-color);
+}
+#header-arrow {
+  margin-right: 20px;
+}
+#header-arrow span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 5px;
+  transform: rotate(-135deg);
+  border: solid var(--hamburger-color);
+  border-width: 6px 6px 0 0;
+}
+
+#header-arrow a:nth-child(2) span {
+  transform: rotate(45deg);
 }
 
 /* SideBar */
@@ -266,13 +325,45 @@ button {
 }
 
 #board {
-  margin: 100px auto 0 auto;
-  max-width: 1000px;
+  margin: 400px auto 0 auto;
+  padding: 10px 30px 10px 30px;
+  max-width: 940px;
   height: 3000px;
   background-color: var(--board-color);
   border-radius: 20px;
   box-shadow: 0px 0px 20px var(--shadow);
   transition: 0.3s;
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-wrapper {
+  margin-bottom: 20px;
+  color: var(--board-text-color);
+  font-family: "Noto Sans KR";
+  font-size: 20px;
+}
+
+.paragraph-title {
+  margin-bottom: 10px;
+  color: var(--board-title-color);
+  font-family: "Noto Sans KR";
+  font-size: 25px;
+}
+
+#logo-top {
+  width: 200px;
+}
+
+body.red #logo-top {
+  content: url("../images/menu/logo_intro_red.png");
+}
+
+body.dark #logo-top {
+  content: url("../images/menu/logo_intro_dark.png");
 }
 
 /* Top Button */
