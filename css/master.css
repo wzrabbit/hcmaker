@@ -210,7 +210,7 @@ body.dark #title-logo {
   margin-top: 12.5px;
   margin-left: 20px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3;
   transition: 0.3s;
 }
 
