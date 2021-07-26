@@ -382,6 +382,7 @@ body.dark #title-logo {
   width: 100%;
   min-height: 120px;
   margin-bottom: 10px;
+  height: auto;
 }
 
 .talk-character-wrapper {
@@ -394,11 +395,12 @@ body.dark #title-logo {
 }
 
 .talk-bubble {
-  display: block;
+  display: inline-block;
   position: relative;
   width: calc(100% - 120px);
-  max-width: 700px;
+  max-width: 600px;
   min-height: 120px;
+  height: inherit;
   background-color: green;
   border-radius: 20px;
 }
@@ -415,24 +417,25 @@ body.dark #title-logo {
   height: 0px;
  }
 
-/* .paragraph-talk.reversed .talk-bubble::after {
+.paragraph-talk.reversed .talk-bubble::after {
    position: absolute;
    display: block;
    top: 80px;
-   right: 16px;
+   right: -16px;
    content: "";
    border: 5px solid;
-   border-width: 7px 16px 7px 0;
+   border-width: 7px 0 7px 16px;
    width: 0px;
    height: 0px;
-  }*/
+  }
 
 .talk-content {
-  position: absolute;
-  width: 100%;
-  text-align: center;
+  position: relative;
   top: 50%;
   transform: translateY(-50%);
+  padding: 10px;
+  width: 580px;
+  text-align: center;
   font-family: "Noto Sans KR";
   font-size: 20px;
   color: white;
@@ -442,8 +445,16 @@ body.dark #title-logo {
   content: url("../images/menu/alice_normal.png");
 }
 
-.paragraph-talk.alice .talk-bubble::after {
+.paragraph-talk.reversed .talk-character {
+  float: right;
+}
+
+.paragraph-talk.alice.normal .talk-bubble::after {
   border-color: transparent var(--alice-bubble-color) transparent transparent;
+}
+
+.paragraph-talk.alice.reversed .talk-bubble::after {
+  border-color: transparent transparent transparent var(--alice-bubble-color);
 }
 
 .paragraph-talk.alice .talk-bubble {
